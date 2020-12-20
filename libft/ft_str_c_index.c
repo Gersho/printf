@@ -1,34 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_str_c_index.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kzennoun <kzennoun@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/19 16:45:21 by kzennoun          #+#    #+#             */
-/*   Updated: 2020/12/20 14:22:31 by kzennoun         ###   ########lyon.fr   */
+/*   Created: 2020/12/20 12:11:30 by kzennoun          #+#    #+#             */
+/*   Updated: 2020/12/20 13:24:16 by kzennoun         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
-
-
-int		ft_printf(const char  *str, ...)
+int		ft_str_index_c(char *str, char c)
 {
-
-	//va_list		start;
-	int			i;
+	int	i;
 
 	i = 0;
-	//va_start(start, str);
-
 	while (str[i])
 	{
-		if (ft_str_)
-		{
-			
-		}
+		if (str[i] == c)
+			return (i);
 		i++;
 	}
-	//va_end(start);
+	return (-1);
 }
