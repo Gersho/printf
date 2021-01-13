@@ -6,7 +6,7 @@
 /*   By: kzennoun <kzennoun@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/19 16:45:21 by kzennoun          #+#    #+#             */
-/*   Updated: 2021/01/12 17:15:37 by kzennoun         ###   ########lyon.fr   */
+/*   Updated: 2021/01/13 15:53:30 by kzennoun         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,13 @@
 int		manage_conversion(char *str, t_cdata *cdata, va_list args)
 {
 	ft_initialise_cdata(cdata);
-	ft_parse_convert(str, cdata, args);
-	//if valid, print conversion, else return -1
-	//doit return -1 en cas de probleme
+
+	if (ft_parse_convert(str + cdata->len, cdata, args) == -1)
+		return (-1);
+	//print
+	if (ft_print_conversion(cdata, args) == -1)
+		return (-1);
+	return (cdata->printed);
 }
 
 int		ft_printf(const char *str, ...)
@@ -36,9 +40,10 @@ int		ft_printf(const char *str, ...)
 		{
 			if (!(cdata = malloc(sizeof(t_cdata))))
 				return (-1);
-			if (!(error_handler = manage_conversion(str + i + 1, cdata, args)))
+			if (!(error_handler = manage_conversion(str + i, cdata, args)))
 				return (-1);
 			i += cdata->len;
+			
 			free(cdata);
 		}
 		else
@@ -50,3 +55,12 @@ int		ft_printf(const char *str, ...)
 	va_end(args);
 	return (i);
 }
+
+
+/*
+
+Fusionner ft_parse_width et ft_parse_prec
+
+
+en cas de mauvaie conversion, abort conversion en cour et continuer
+*/

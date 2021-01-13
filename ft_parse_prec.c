@@ -1,25 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_initialise_cdata.c                              :+:      :+:    :+:   */
+/*   ft_parse_prec.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kzennoun <kzennoun@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/11 16:53:40 by kzennoun          #+#    #+#             */
-/*   Updated: 2021/01/13 12:29:39 by kzennoun         ###   ########lyon.fr   */
+/*   Created: 2021/01/13 10:28:50 by kzennoun          #+#    #+#             */
+/*   Updated: 2021/01/13 10:33:59 by kzennoun         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-void	ft_initialise_cdata(t_cdata *cdata)
+void	ft_parse_prec(char *str, t_cdata *cdata, va_list args)
 {
-	cdata->type = NULL;
-	cdata->flag_minus = NULL;
-	cdata->flag_zero = NULL;
-	cdata->width = NULL;
-	cdata->prec = NULL;
-	cdata->len = 1;
-	cdata->is_valid = 1;
-	cdata->printed = 0;
+	int				i;
+	long int		nb;
+
+	if (str[0] == '*')
+	{
+		cdata->prec = va_arg(args, int);
+		cdata->len += 1;
+		return ;
+	}
+	i = 0;
+	nb = 0;
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		nb = (nb * 10) + (str[i] - '0');
+		i++;
+	}
+	cdata->prec = nb;
+	cdata->len += i;
 }
