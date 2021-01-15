@@ -6,7 +6,7 @@
 /*   By: kzennoun <kzennoun@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/13 10:28:50 by kzennoun          #+#    #+#             */
-/*   Updated: 2021/01/13 10:33:59 by kzennoun         ###   ########lyon.fr   */
+/*   Updated: 2021/01/15 15:41:21 by kzennoun         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ void	ft_parse_prec(char *str, t_cdata *cdata, va_list args)
 	if (str[0] == '*')
 	{
 		cdata->prec = va_arg(args, int);
+		if (cdata->prec < 0)
+			cdata->prec *= 1;
 		cdata->len += 1;
 		return ;
 	}

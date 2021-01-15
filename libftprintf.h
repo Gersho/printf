@@ -6,7 +6,7 @@
 /*   By: kzennoun <kzennoun@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/19 16:48:55 by kzennoun          #+#    #+#             */
-/*   Updated: 2021/01/15 11:18:33 by kzennoun         ###   ########lyon.fr   */
+/*   Updated: 2021/01/15 15:33:38 by kzennoun         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,4 +37,7 @@ void			ft_parse_width(char *str, t_cdata *cdata, va_list args);
 void			ft_parse_prec(char *str, t_cdata *cdata, va_list args);
 
 void			ft_print_prct(t_cdata *cdata);
+void			ft_print_c(t_cdata *cdata, va_list args);
+void			ft_print_s(t_cdata *cdata, va_list args);
+void			ft_print_i(t_cdata *cdata, va_list args);
 #endif
