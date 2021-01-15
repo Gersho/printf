@@ -6,7 +6,7 @@
 /*   By: kzennoun <kzennoun@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 13:26:56 by kzennoun          #+#    #+#             */
-/*   Updated: 2020/12/20 14:22:26 by kzennoun         ###   ########lyon.fr   */
+/*   Updated: 2021/01/15 10:57:13 by kzennoun         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,4 +67,5 @@ void				ft_lstiter(t_list *lst, void (*f)(void *));
 t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),\
 					void (*del)(void *));
 int					ft_str_index_c(char *str, char c);
+void				ft_putxchary_fd(int x, char y, int fd)
 #endif
