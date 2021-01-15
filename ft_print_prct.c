@@ -1,40 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_parse_width.c                                   :+:      :+:    :+:   */
+/*   ft_print_prct.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kzennoun <kzennoun@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/12 15:37:56 by kzennoun          #+#    #+#             */
-/*   Updated: 2021/01/15 12:41:47 by kzennoun         ###   ########lyon.fr   */
+/*   Created: 2021/01/13 13:54:23 by kzennoun          #+#    #+#             */
+/*   Updated: 2021/01/15 12:42:51 by kzennoun         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-void	ft_parse_width(char *str, t_cdata *cdata, va_list args)
+void	ft_print_prct(t_cdata *cdata)
 {
-	int				i;
-	long int		nb;
+	char	filler;
 
-	if (str[0] == '*')
+	filler = ' ';
+	if (cdata->flag_zero == 1 && cdata->flag_minus == 0)
+		filler = '0';
+	if (cdata->width == 0)
+		cdata->width = 1;
+	if (cdata->flag_minus == 1)
 	{
-		cdata->width = va_arg(args, int);
-		if (cdata->width < 0)
-		{
-			cdata->width *= -1;
-			cdata->flag_minus = 1;
-		}
-		cdata->len += 1;
-		return ;
+		ft_putchar_fd('%', 1);
+		ft_putxchary_fd(cdata->width - 1, filler, 1);
 	}
-	i = 0;
-	nb = 0;
-	while (str[i] >= '0' && str[i] <= '9')
+	else
 	{
-		nb = (nb * 10) + (str[i] - '0');
-		i++;
+		ft_putxchary_fd(cdata->width - 1, filler, 1);
+		ft_putchar_fd('%', 1);
 	}
-	cdata->width = nb;
-	cdata->len += i;
+	cdata->printed += cdata->width;
 }

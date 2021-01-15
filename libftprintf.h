@@ -6,7 +6,7 @@
 /*   By: kzennoun <kzennoun@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/19 16:48:55 by kzennoun          #+#    #+#             */
-/*   Updated: 2021/01/13 10:36:06 by kzennoun         ###   ########lyon.fr   */
+/*   Updated: 2021/01/15 11:18:33 by kzennoun         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ typedef struct	s_cdata
 	int			width;
 	int			prec;
 	int			len;
-	int			is_valid;
 	int			printed;
 }				t_cdata;
 
@@ -36,4 +35,6 @@ int				ft_parse_convert(char *str, t_cdata *cdata, va_list args);
 void			ft_initialise_cdata(t_cdata *cdata);
 void			ft_parse_width(char *str, t_cdata *cdata, va_list args);
 void			ft_parse_prec(char *str, t_cdata *cdata, va_list args);
+
+void			ft_print_prct(t_cdata *cdata);
 #endif
