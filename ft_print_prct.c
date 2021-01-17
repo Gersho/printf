@@ -6,11 +6,11 @@
 /*   By: kzennoun <kzennoun@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/13 13:54:23 by kzennoun          #+#    #+#             */
-/*   Updated: 2021/01/15 12:42:51 by kzennoun         ###   ########lyon.fr   */
+/*   Updated: 2021/01/16 17:00:04 by kzennoun         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 void	ft_print_prct(t_cdata *cdata)
 {

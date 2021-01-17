@@ -6,13 +6,13 @@
 /*   By: kzennoun <kzennoun@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/12 15:37:56 by kzennoun          #+#    #+#             */
-/*   Updated: 2021/01/15 12:41:47 by kzennoun         ###   ########lyon.fr   */
+/*   Updated: 2021/01/16 17:00:47 by kzennoun         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
-void	ft_parse_width(char *str, t_cdata *cdata, va_list args)
+void	ft_parse_width(const char *str, t_cdata *cdata, va_list args)
 {
 	int				i;
 	long int		nb;

@@ -16,7 +16,7 @@ OBJSBONUS	= $(BONUS:.c=.o)
 NAME	= libft.a
 CC		= gcc
 RM		= rm -f
-CFLAGS	= -Wall -Wextra -Werror -g
+CFLAGS	= -Wall -Wextra -Werror
 AR		= ar -cr
 
 .c.o:

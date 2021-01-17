@@ -6,11 +6,11 @@
 /*   By: kzennoun <kzennoun@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 13:05:39 by kzennoun          #+#    #+#             */
-/*   Updated: 2021/01/15 14:19:07 by kzennoun         ###   ########lyon.fr   */
+/*   Updated: 2021/01/16 16:59:57 by kzennoun         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 void	ft_print_s(t_cdata *cdata, va_list args)
 {
@@ -19,7 +19,7 @@ void	ft_print_s(t_cdata *cdata, va_list args)
 	char	*str;
 
 	str = va_arg(args, char*);
-	if (cdata->prec == NULL || cdata->prec > ft_strlen(str))
+	if (cdata->prec == 0 || cdata->prec > (int)ft_strlen(str))
 		cdata->prec = ft_strlen(str);
 	filler = ' ';
 	if (cdata->flag_zero == 1 && cdata->flag_minus == 0)

@@ -6,13 +6,13 @@
 /*   By: kzennoun <kzennoun@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 15:56:55 by kzennoun          #+#    #+#             */
-/*   Updated: 2021/01/12 17:16:23 by kzennoun         ###   ########lyon.fr   */
+/*   Updated: 2021/01/16 16:57:53 by kzennoun         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
-void	ft_parse_flags(char *str, t_cdata *cdata)
+void	ft_parse_flags(const char *str, t_cdata *cdata)
 {
 	int		i;
 

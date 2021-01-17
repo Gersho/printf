@@ -6,13 +6,13 @@
 /*   By: kzennoun <kzennoun@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 14:45:33 by kzennoun          #+#    #+#             */
-/*   Updated: 2021/01/13 13:27:26 by kzennoun         ###   ########lyon.fr   */
+/*   Updated: 2021/01/16 17:00:59 by kzennoun         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
-int		ft_parse_convert(char *str, t_cdata *cdata, va_list args)
+int		ft_parse_convert(const char *str, t_cdata *cdata, va_list args)
 {
 	ft_parse_flags(str + cdata->len, cdata);
 	ft_parse_width(str + cdata->len, cdata, args);

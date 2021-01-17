@@ -6,21 +6,20 @@
 /*   By: kzennoun <kzennoun@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/19 16:45:21 by kzennoun          #+#    #+#             */
-/*   Updated: 2021/01/13 15:53:30 by kzennoun         ###   ########lyon.fr   */
+/*   Updated: 2021/01/16 16:59:45 by kzennoun         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
-int		manage_conversion(char *str, t_cdata *cdata, va_list args)
+int		manage_conversion(const char *str, t_cdata *cdata, va_list args)
 {
 	ft_initialise_cdata(cdata);
 
 	if (ft_parse_convert(str + cdata->len, cdata, args) == -1)
 		return (-1);
 	//print
-	if (ft_print_conversion(cdata, args) == -1)
-		return (-1);
+	ft_print_conversion(cdata, args);
 	return (cdata->printed);
 }
 
@@ -30,7 +29,7 @@ int		ft_printf(const char *str, ...)
 	int			i;
 	int			error_handler;
 	t_cdata		*cdata;
-	int			print_len;
+	//int			print_len;
 
 	i = 0;
 	va_start(args, str);
