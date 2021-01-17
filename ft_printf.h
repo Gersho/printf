@@ -6,7 +6,7 @@
 /*   By: kzennoun <kzennoun@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/19 16:48:55 by kzennoun          #+#    #+#             */
-/*   Updated: 2021/01/17 11:17:36 by kzennoun         ###   ########lyon.fr   */
+/*   Updated: 2021/01/17 13:18:01 by kzennoun         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <unistd.h>
 # include "libft/libft.h"
 
+#include <stdio.h>
 typedef struct	s_cdata
 {
 	char		type;
@@ -42,4 +43,9 @@ void			ft_print_c(t_cdata *cdata, va_list args);
 void			ft_print_s(t_cdata *cdata, va_list args);
 void			ft_print_i(t_cdata *cdata, va_list args);
 void			ft_print_conversion(t_cdata *cdata, va_list args);
+
+
+
+
+void			debug_print_cdata(t_cdata *cdata);
 #endif

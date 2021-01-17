@@ -6,7 +6,7 @@
 /*   By: kzennoun <kzennoun@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/12 15:37:56 by kzennoun          #+#    #+#             */
-/*   Updated: 2021/01/16 17:00:47 by kzennoun         ###   ########lyon.fr   */
+/*   Updated: 2021/01/17 15:37:27 by kzennoun         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ void	ft_parse_width(const char *str, t_cdata *cdata, va_list args)
 	int				i;
 	long int		nb;
 
+	//printf("in parse widths! ==> str:%s\n", str);
 	if (str[0] == '*')
 	{
 		cdata->width = va_arg(args, int);
