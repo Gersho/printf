@@ -1,7 +1,7 @@
 SRCS = ft_parse_convert.c ft_print_conversion.c  ft_parse_flags.c \
 ft_print_i.c ft_parse_prec.c ft_printf.c \
 ft_initialise_cdata.c ft_parse_width.c ft_print_prct.c ft_print_c.c \
-ft_print_s.c \
+ft_print_s.c ft_print_u.c \
 debug_printf.c
 
 OBJS	= $(SRCS:.c=.o)
