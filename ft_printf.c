@@ -6,7 +6,7 @@
 /*   By: kzennoun <kzennoun@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/19 16:45:21 by kzennoun          #+#    #+#             */
-/*   Updated: 2021/01/18 14:17:00 by kzennoun         ###   ########lyon.fr   */
+/*   Updated: 2021/01/20 13:33:55 by kzennoun         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int		manage_conversion(const char *str, t_cdata *cdata, va_list args)
 		*/
 	ft_parse_convert(str, cdata, args);
 	//printf("coucou3\n");
-	debug_print_cdata(cdata);
+	//debug_print_cdata(cdata);
 	ft_print_conversion(cdata, args);
 	return (cdata->printed);
 }

@@ -6,7 +6,7 @@
 /*   By: kzennoun <kzennoun@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/19 16:48:55 by kzennoun          #+#    #+#             */
-/*   Updated: 2021/01/18 14:30:42 by kzennoun         ###   ########lyon.fr   */
+/*   Updated: 2021/01/20 14:42:07 by kzennoun         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void			ft_print_s(t_cdata *cdata, va_list args);
 void			ft_print_i(t_cdata *cdata, va_list args);
 void			ft_print_u(t_cdata *cdata, va_list args);
 void			ft_print_conversion(t_cdata *cdata, va_list args);
-
+void 			ft_print_p(t_cdata *cdata, va_list args);
 
 
 

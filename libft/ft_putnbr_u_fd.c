@@ -1,24 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_p.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_u_fd.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kzennoun <kzennoun@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/20 14:38:28 by kzennoun          #+#    #+#             */
-/*   Updated: 2021/01/20 15:13:53 by kzennoun         ###   ########lyon.fr   */
+/*   Created: 2021/01/20 11:24:56 by kzennoun          #+#    #+#             */
+/*   Updated: 2021/01/20 11:26:46 by kzennoun         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
 
-void ft_print_p(t_cdata *cdata, va_list args)
+#include "libft.h"
+
+void	ft_putnbr_u_fd(unsigned int nb, int fd)
 {
-	(void)cdata;
-	(void)args;
+	long unsigned int long_nb;
 
-	if (cdata->flag_minus == 0)
-		ft_putxchary_fd(, ' ', 1);
-	write(1, "0x", 2);
-	
+	long_nb = nb;
+	if (long_nb >= 10)
+	{
+		ft_putnbr_fd(long_nb / 10, fd);
+		ft_putnbr_fd(long_nb % 10, fd);
+	}
+	else
+	{
+		ft_putchar_fd(('0' + long_nb), fd);
+	}
 }
