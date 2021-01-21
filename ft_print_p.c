@@ -6,7 +6,7 @@
 /*   By: kzennoun <kzennoun@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 14:38:28 by kzennoun          #+#    #+#             */
-/*   Updated: 2021/01/20 16:35:03 by kzennoun         ###   ########lyon.fr   */
+/*   Updated: 2021/01/21 14:15:38 by kzennoun         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,22 @@
 void ft_print_p(t_cdata *cdata, va_list args)
 {
 	unsigned long long int		value;
-	//int							ptr_len;
+	int							str_len;
 	char						*str;
-	(void)cdata;
-	(void)args;
 
 	value = (unsigned long long int)va_arg(args, void *);
-	str = ft_lltuoa_base(value, "0123456789abcdef");
-	printf("str after lltuoa_base:%s", str);
-/* 	if (cdata->flag_minus == 0)
-		ft_putxchary_fd(, ' ', 1); */
+	str = ft_llutoa_base(value, "0123456789abcdef");
+	str_len = ft_strlen(str);
+	//printf("str after lltuoa_base:%s\n", str);
+	if (cdata->flag_minus == 0)
+		ft_putxchary_fd(cdata->width - str_len - 2, ' ', 1);
 	write(1, "0x", 2);
+	ft_putstr_fd(str, 1);
+	if (cdata->flag_minus == 1)
+		ft_putxchary_fd(cdata->width - str_len - 2, ' ', 1);
+	if (cdata->width > (str_len + 2))
+		cdata->printed += cdata->width;
+	else
+		cdata->printed += str_len + 2;
 	
 }

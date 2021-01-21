@@ -6,7 +6,7 @@
 /*   By: kzennoun <kzennoun@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/13 13:25:11 by kzennoun          #+#    #+#             */
-/*   Updated: 2021/01/20 14:39:18 by kzennoun         ###   ########lyon.fr   */
+/*   Updated: 2021/01/21 14:15:58 by kzennoun         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,8 @@ void	ft_print_conversion(t_cdata *cdata, va_list args)
 		ft_print_i(cdata, args);
 	if (cdata->type == 'u')
 		ft_print_u(cdata, args);
-	//if (cdata->type == 'x')
-	//	ft_print_xlow(cdata, args);
-	//if (cdata->type == 'X')
-	//	ft_print_xupp(cdata, args);
+	if (cdata->type == 'x' || cdata->type == 'X')
+		ft_print_x(cdata, args);
 	if (cdata->type == '%')
 		ft_print_prct(cdata);
 	return ;

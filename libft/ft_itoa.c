@@ -6,13 +6,13 @@
 /*   By: kzennoun <kzennoun@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/27 06:50:07 by kzennoun          #+#    #+#             */
-/*   Updated: 2020/11/28 13:13:41 by kzennoun         ###   ########lyon.fr   */
+/*   Updated: 2021/01/21 12:39:19 by kzennoun         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_get_digit_count(long int n)
+static int		ft_get_digit_count(long int n)
 {
 	int		i;
 
@@ -27,7 +27,7 @@ int		ft_get_digit_count(long int n)
 	return (i);
 }
 
-char	*ft_itoa(int n)
+char			*ft_itoa(int n)
 {
 	char			*str;
 	int				digit_count;
