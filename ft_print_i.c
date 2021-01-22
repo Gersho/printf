@@ -6,7 +6,7 @@
 /*   By: kzennoun <kzennoun@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 15:09:34 by kzennoun          #+#    #+#             */
-/*   Updated: 2021/01/18 14:20:01 by kzennoun         ###   ########lyon.fr   */
+/*   Updated: 2021/01/22 12:06:54 by kzennoun         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,12 @@
 
 void	ft_print_i(t_cdata *cdata, va_list args)
 {
-	char		*str;
+	(void)cdata;
+	(void)args;
+
+}
+
+/* 	char		*str;
 	int			value;
 	char		filler;
 	char		*ptr;
@@ -34,11 +39,11 @@ void	ft_print_i(t_cdata *cdata, va_list args)
 		|| (cdata->prec < (int)ft_strlen(str) && cdata->int_isneg == 0))
 		cdata->prec = (int)ft_strlen(str);
 
-/* 	if (cdata->prec == 0 || cdata->prec < 0)
-		cdata->prec = (int)ft_strlen(str); */
+ 	// if (cdata->prec == 0 || cdata->prec < 0)
+	// 	cdata->prec = (int)ft_strlen(str); 
 	filler = ' ';
-/*  	if (cdata->flag_zero == 1 && cdata->flag_minus == 0)
-		filler = '0';  */
+ 	// if (cdata->flag_zero == 1 && cdata->flag_minus == 0)
+	// 	filler = '0'; 
 	ptr = ft_substr(str, 0, cdata->prec);
 	if ((cdata->int_isneg == 1 && cdata->flag_minus == 1) \
 		|| (cdata->int_isneg == 1 && cdata->flag_minus == 0 && cdata->flag_zero == 1))
@@ -72,9 +77,16 @@ void	ft_print_i(t_cdata *cdata, va_list args)
 	free(str);
 	
 	//add cdata->printed
+ */
 
 
-}
+/* 
+===================================================
+===================================================
+===================================================
+=================================================== */
+
+
 	// add cdata->printed
 	//NE PAS OUBLIER DE FREE.
 	/*

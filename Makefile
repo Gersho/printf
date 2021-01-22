@@ -12,8 +12,8 @@ RM		= rm -f
 CFLAGS	= -Wall -Wextra -Werror
 AR		= ar -cr
 
-.c.o:
-			$(CC) $(CFLAGS) -c $< -o $(<:.c=.o) -I
+%.o: %.c	ft_printf.h
+			$(CC) $(CFLAGS) -c $< -o $@ -I
 
 $(NAME):	$(OBJS)
 			make -C libft/
@@ -25,13 +25,12 @@ all: 		$(NAME)
 clean:
 			$(RM) $(OBJS)
 			$(RM) $(OBJSBONUS)
+			make -C libft/ clean
 
 fclean:		clean
 			$(RM) $(NAME)
+			$(RM) libft/libft.a
 
 re:			fclean all
-
-bonus:		$(OBJSBONUS)
-			$(AR) $(NAME) $(OBJSBONUS)
 			
 .PHONY:		bonus re fclean clean all
