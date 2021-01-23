@@ -6,7 +6,7 @@
 /*   By: kzennoun <kzennoun@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 16:28:26 by kzennoun          #+#    #+#             */
-/*   Updated: 2021/01/21 12:40:55 by kzennoun         ###   ########lyon.fr   */
+/*   Updated: 2021/01/23 16:19:51 by kzennoun         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,10 @@ static int	ft_get_digit_count(unsigned long long int nbr, int base_len)
 {
 	int		i;
 
-	i = 1;
-	while (nbr >= (unsigned)base_len)
+	if (nbr == 0)
+		return (1);
+	i = 0;
+	while (nbr > 0)
 	{
 		i++;
 		nbr /= base_len;
@@ -57,9 +59,9 @@ char		*ft_llutoa_base(unsigned long long int nbr, char *base)
 	digit_count = ft_get_digit_count(nbr, base_len);
 	if (!check_base_is_valid(base) || base_len < 2)
 		return (NULL);
-	if (!(str = malloc(sizeof(char) * (digit_count + 1))))
+	if (!(str = ft_calloc(digit_count + 1, sizeof(char))))
 		return (NULL);
-	while (digit_count >= 0)
+	while (digit_count > 0)
 	{
 		str[digit_count - 1] = base[nbr % base_len];
 		nbr /= base_len;

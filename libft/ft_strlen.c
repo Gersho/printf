@@ -6,7 +6,7 @@
 /*   By: kzennoun <kzennoun@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 13:40:54 by kzennoun          #+#    #+#             */
-/*   Updated: 2021/01/22 13:37:32 by kzennoun         ###   ########lyon.fr   */
+/*   Updated: 2021/01/23 12:43:31 by kzennoun         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 size_t	ft_strlen(const char *str)
 {
 	int i;
-	
+
 	if (!str)
 		return (0);
 	i = 0;

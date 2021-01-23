@@ -6,7 +6,7 @@
 /*   By: kzennoun <kzennoun@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/21 14:04:50 by kzennoun          #+#    #+#             */
-/*   Updated: 2021/01/21 15:40:49 by kzennoun         ###   ########lyon.fr   */
+/*   Updated: 2021/01/23 16:16:57 by kzennoun         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,21 @@
 
 void	ft_print_x(t_cdata *cdata, va_list args)
 {
-	unsigned long long int		value;
+	unsigned int				value;
 	char						*str;
 	int							str_len;
 	char						filler;
 
 
-	value = (unsigned long long int)va_arg(args, void *);
+	value = (unsigned int)va_arg(args, int);
 	if (cdata->type == 'x')
 		str = ft_llutoa_base(value, "0123456789abcdef");
 	else
 		str = ft_llutoa_base(value, "0123456789ABCDEF");
 	str_len = ft_strlen(str);
+	
+	//printf("\nprinteffe:%s\n", str);
+
 	if (cdata->prec != - 1)
 		cdata->flag_zero = 0;
 	filler = ' ';
