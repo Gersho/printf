@@ -6,7 +6,7 @@
 /*   By: kzennoun <kzennoun@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/19 16:45:21 by kzennoun          #+#    #+#             */
-/*   Updated: 2021/01/23 14:25:22 by kzennoun         ###   ########lyon.fr   */
+/*   Updated: 2021/01/24 14:21:54 by kzennoun         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,10 @@
 
 int		manage_conversion(const char *str, t_cdata *cdata, va_list args)
 {
-	//printf("in manage conversion str:%s\n", str);
 	ft_initialise_cdata(cdata);
-	/*
-	if (ft_parse_convert(str + cdata->len, cdata, args) == -1)
-		return (-1);
-		*/
 	ft_parse_convert(str, cdata, args);
-	//printf("coucou3\n");
-	//debug_print_cdata(cdata);
 	ft_print_conversion(cdata, args);
+	// wtf ?
 	return (cdata->printed);
 }
 
@@ -39,14 +33,11 @@ int		ft_printf(const char *str, ...)
 	va_start(args, str);
 	while (str[i])
 	{
-		//printf("CURRENT:str[%i]:%c ==>str:%s\n", i, str[i], (str+i));
 		if (str[i] == '%')
 		{
 			if (!(cdata = malloc(sizeof(t_cdata))))
 				return (-1);
-			//printf("%%found i:%i -- str+i:%s\n", i, (str+i));
 			manage_conversion(str + i, cdata, args);
-			//printf(" AFTER PRINT i:%i  // cdata->len:%i\n", i, cdata->len);
 			i += cdata->len;
 			print_len += cdata->printed;
 			free(cdata);
@@ -61,12 +52,3 @@ int		ft_printf(const char *str, ...)
 	va_end(args);
 	return (print_len);
 }
-
-
-/*
-
-Fusionner ft_parse_width et ft_parse_prec
-
-
-en cas de mauvaie conversion, abort conversion en cour et continuer
-*/

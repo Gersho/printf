@@ -6,7 +6,7 @@
 /*   By: kzennoun <kzennoun@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 13:05:39 by kzennoun          #+#    #+#             */
-/*   Updated: 2021/01/18 10:53:20 by kzennoun         ###   ########lyon.fr   */
+/*   Updated: 2021/01/24 14:26:38 by kzennoun         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ void	ft_print_s(t_cdata *cdata, va_list args)
 	char	*str;
 
 	str = va_arg(args, char*);
-
 	if (str == NULL)
 		str = "(null)";
 	if (cdata->prec == -1 || cdata->prec > (int)ft_strlen(str))

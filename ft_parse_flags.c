@@ -6,7 +6,7 @@
 /*   By: kzennoun <kzennoun@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 15:56:55 by kzennoun          #+#    #+#             */
-/*   Updated: 2021/01/18 12:54:06 by kzennoun         ###   ########lyon.fr   */
+/*   Updated: 2021/01/24 14:29:06 by kzennoun         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ void	ft_parse_flags(const char *str, t_cdata *cdata)
 {
 	int		i;
 
-	//printf("in parse flags! ==> str:%s\n", str);
 	i = 1;
 	while (str[i] == '-' || str[i] == '0')
 	{

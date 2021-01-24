@@ -6,7 +6,7 @@
 /*   By: kzennoun <kzennoun@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/21 14:04:50 by kzennoun          #+#    #+#             */
-/*   Updated: 2021/01/24 11:40:00 by kzennoun         ###   ########lyon.fr   */
+/*   Updated: 2021/01/24 14:28:45 by kzennoun         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ void	ft_print_x(t_cdata *cdata, va_list args)
 	char						filler;
 	int							need_free;
 
-	//debug_print_cdata(cdata);
 	value = (unsigned int)va_arg(args, int);
 	need_free = 1;
 	if (value == 0 && cdata->prec == 0)
@@ -33,9 +32,7 @@ void	ft_print_x(t_cdata *cdata, va_list args)
 	else
 		str = ft_llutoa_base(value, "0123456789ABCDEF");
 	str_len = ft_strlen(str);
-
-
-	if (cdata->prec != - 1)
+	if (cdata->prec != -1)
 		cdata->flag_zero = 0;
 	filler = ' ';
 	if (cdata->flag_zero == 1)
@@ -49,7 +46,6 @@ void	ft_print_x(t_cdata *cdata, va_list args)
 	ft_putstr_fd(str, 1);
 	if (cdata->width > cdata->prec && cdata->flag_minus == 1)
 		ft_putxchary_fd(cdata->width - cdata->prec, ' ', 1);
-	//cdata->printed
 	if (cdata->width > cdata->prec)
 		cdata->printed += cdata->width;
 	else
