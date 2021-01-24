@@ -6,13 +6,13 @@
 /*   By: kzennoun <kzennoun@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/18 14:24:09 by kzennoun          #+#    #+#             */
-/*   Updated: 2021/01/24 14:27:41 by kzennoun         ###   ########lyon.fr   */
+/*   Updated: 2021/01/24 15:38:41 by kzennoun         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_print_u(t_cdata *cdata, va_list args)
+int	ft_print_u(t_cdata *cdata, va_list args)
 {
 	char			*str;
 	int				len;
@@ -26,7 +26,8 @@ void	ft_print_u(t_cdata *cdata, va_list args)
 		str = "";
 	else
 	{
-		str = ft_utoa(value);
+		if (!(str = ft_utoa(value)))
+			return (-1);
 		need_free = 1;
 	}
 	len = (int)ft_strlen(str);
@@ -47,4 +48,5 @@ void	ft_print_u(t_cdata *cdata, va_list args)
 		cdata->printed += cdata->prec;
 	if (need_free)
 		free(str);
+	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: kzennoun <kzennoun@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/19 16:45:21 by kzennoun          #+#    #+#             */
-/*   Updated: 2021/01/24 14:21:54 by kzennoun         ###   ########lyon.fr   */
+/*   Updated: 2021/01/24 15:46:33 by kzennoun         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,10 @@ int		manage_conversion(const char *str, t_cdata *cdata, va_list args)
 {
 	ft_initialise_cdata(cdata);
 	ft_parse_convert(str, cdata, args);
-	ft_print_conversion(cdata, args);
+	if ((ft_print_conversion(cdata, args)) == -1)
+		return (-1);
 	// wtf ?
-	return (cdata->printed);
+	return (0);
 }
 
 int		ft_printf(const char *str, ...)
@@ -37,7 +38,8 @@ int		ft_printf(const char *str, ...)
 		{
 			if (!(cdata = malloc(sizeof(t_cdata))))
 				return (-1);
-			manage_conversion(str + i, cdata, args);
+			if ((manage_conversion(str + i, cdata, args)) == -1)
+				return (-1);
 			i += cdata->len;
 			print_len += cdata->printed;
 			free(cdata);

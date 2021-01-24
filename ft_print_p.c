@@ -6,13 +6,13 @@
 /*   By: kzennoun <kzennoun@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 14:38:28 by kzennoun          #+#    #+#             */
-/*   Updated: 2021/01/24 14:26:21 by kzennoun         ###   ########lyon.fr   */
+/*   Updated: 2021/01/24 15:09:33 by kzennoun         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_print_p(t_cdata *cdata, va_list args)
+int		ft_print_p(t_cdata *cdata, va_list args)
 {
 	unsigned long long int		value;
 	int							str_len;
@@ -27,7 +27,10 @@ void	ft_print_p(t_cdata *cdata, va_list args)
 		str = "0";
 	}
 	else
-		str = ft_llutoa_base(value, "0123456789abcdef");
+	{
+		if (!(str = ft_llutoa_base(value, "0123456789abcdef")))
+			return (-1);
+	}
 	str_len = ft_strlen(str);
 	if (cdata->flag_minus == 0)
 		ft_putxchary_fd(cdata->width - str_len - 2, ' ', 1);
@@ -41,4 +44,5 @@ void	ft_print_p(t_cdata *cdata, va_list args)
 		cdata->printed += str_len + 2;
 	if (need_free)
 		free(str);
+	return (0);
 }

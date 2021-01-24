@@ -6,13 +6,13 @@
 /*   By: kzennoun <kzennoun@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 13:05:39 by kzennoun          #+#    #+#             */
-/*   Updated: 2021/01/24 14:26:38 by kzennoun         ###   ########lyon.fr   */
+/*   Updated: 2021/01/24 15:09:44 by kzennoun         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_print_s(t_cdata *cdata, va_list args)
+int		ft_print_s(t_cdata *cdata, va_list args)
 {
 	char	filler;
 	char	*ptr;
@@ -26,7 +26,11 @@ void	ft_print_s(t_cdata *cdata, va_list args)
 	filler = ' ';
 	if (cdata->flag_zero == 1 && cdata->flag_minus == 0)
 		filler = '0';
-	ptr = ft_substr(str, 0, cdata->prec);
+
+	if (!(ptr = ft_substr(str, 0, cdata->prec)))
+		return (-1);
+	//ptr = ft_substr(str, 0, cdata->prec);
+	//return NULL if fail
 	if (cdata->flag_minus == 1)
 	{
 		ft_putstr_fd(ptr, 1);
@@ -39,4 +43,5 @@ void	ft_print_s(t_cdata *cdata, va_list args)
 	}
 	free(ptr);
 	cdata->printed = cdata->width > cdata->prec ? cdata->width : cdata->prec;
+	return (0);
 }
