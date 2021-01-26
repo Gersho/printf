@@ -6,13 +6,13 @@
 /*   By: kzennoun <kzennoun@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/18 14:24:09 by kzennoun          #+#    #+#             */
-/*   Updated: 2021/01/24 15:38:41 by kzennoun         ###   ########lyon.fr   */
+/*   Updated: 2021/01/26 14:01:25 by kzennoun         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_print_u(t_cdata *cdata, va_list args)
+int		ft_print_u(t_cdata *cdata, va_list args)
 {
 	char			*str;
 	int				len;

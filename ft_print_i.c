@@ -6,13 +6,13 @@
 /*   By: kzennoun <kzennoun@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 15:09:34 by kzennoun          #+#    #+#             */
-/*   Updated: 2021/01/26 12:58:03 by kzennoun         ###   ########lyon.fr   */
+/*   Updated: 2021/01/26 13:43:52 by kzennoun         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int 	ft_print_i(t_cdata *cdata, va_list args)
+int		ft_print_i(t_cdata *cdata, va_list args)
 {
 	long int	value;
 	int			str_len;
@@ -44,10 +44,9 @@ int 	ft_print_i(t_cdata *cdata, va_list args)
 	str_len = (int)ft_strlen(str);
 	while (str_len < cdata->prec)
 	{
-		
 		temp = ft_strjoin("0", str);
 		free(str);
-		if(!temp)
+		if (!temp)
 			return (-1);
 		str = temp;
 		str_len++;

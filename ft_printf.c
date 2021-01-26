@@ -6,7 +6,7 @@
 /*   By: kzennoun <kzennoun@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/19 16:45:21 by kzennoun          #+#    #+#             */
-/*   Updated: 2021/01/24 15:46:33 by kzennoun         ###   ########lyon.fr   */
+/*   Updated: 2021/01/26 13:45:01 by kzennoun         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ int		manage_conversion(const char *str, t_cdata *cdata, va_list args)
 	ft_parse_convert(str, cdata, args);
 	if ((ft_print_conversion(cdata, args)) == -1)
 		return (-1);
-	// wtf ?
 	return (0);
 }
 
