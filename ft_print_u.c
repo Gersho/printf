@@ -6,31 +6,16 @@
 /*   By: kzennoun <kzennoun@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/18 14:24:09 by kzennoun          #+#    #+#             */
-/*   Updated: 2021/01/26 14:01:25 by kzennoun         ###   ########lyon.fr   */
+/*   Updated: 2021/01/26 16:22:35 by kzennoun         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		ft_print_u(t_cdata *cdata, va_list args)
+static void	ft_handle_print(t_cdata *cdata, int len, char *str)
 {
-	char			*str;
-	int				len;
-	unsigned int	value;
-	char			filler;
-	int				need_free;
+	char	filler;
 
-	value = va_arg(args, unsigned int);
-	need_free = 0;
-	if (value == 0 && cdata->prec == 0)
-		str = "";
-	else
-	{
-		if (!(str = ft_utoa(value)))
-			return (-1);
-		need_free = 1;
-	}
-	len = (int)ft_strlen(str);
 	filler = ' ';
 	if (cdata->flag_minus == 0 && cdata->flag_zero == 1 && cdata->prec < 0)
 		filler = '0';
@@ -42,11 +27,23 @@ int		ft_print_u(t_cdata *cdata, va_list args)
 	ft_putstr_fd(str, 1);
 	if (cdata->flag_minus == 1)
 		ft_putxchary_fd(cdata->width - cdata->prec, ' ', 1);
-	if (cdata->width > cdata->prec)
-		cdata->printed += cdata->width;
-	else
-		cdata->printed += cdata->prec;
-	if (need_free)
+	cdata->printed = cdata->width > cdata->prec ? cdata->width : cdata->prec;
+}
+
+int			ft_print_u(t_cdata *cdata, va_list args)
+{
+	char			*str;
+	int				len;
+	unsigned int	value;
+
+	value = va_arg(args, unsigned int);
+	if (value == 0 && cdata->prec == 0)
+		str = "";
+	else if (!(str = ft_utoa(value)))
+		return (-1);
+	len = (int)ft_strlen(str);
+	ft_handle_print(cdata, len, str);
+	if (!(value == 0 && cdata->prec == 0))
 		free(str);
 	return (0);
 }
