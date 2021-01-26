@@ -6,7 +6,7 @@
 /*   By: kzennoun <kzennoun@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 15:09:34 by kzennoun          #+#    #+#             */
-/*   Updated: 2021/01/24 15:45:10 by kzennoun         ###   ########lyon.fr   */
+/*   Updated: 2021/01/26 12:58:03 by kzennoun         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,18 @@ int 	ft_print_i(t_cdata *cdata, va_list args)
 	else
 	{
 		str = ft_ltoa(value);
+		if (!str)
+			return (-1);
 		need_free = 1;
 	}
 	str_len = (int)ft_strlen(str);
 	while (str_len < cdata->prec)
 	{
+		
 		temp = ft_strjoin("0", str);
 		free(str);
+		if(!temp)
+			return (-1);
 		str = temp;
 		str_len++;
 	}
