@@ -34,31 +34,37 @@ static void	ft_handle_print(t_cdata *cdata, int str_len, char *str)
 		cdata->printed += (str_len + cdata->int_isneg);	
 }
 
-int		ft_print_i(t_cdata *cdata, va_list args)
+
+static int	ft_build_str(t_cdata *cdata, va_list args, char **s, long int *nb)
+{
+	if (cdata->prec != -1)
+		cdata->flag_zero = 0;
+	if ((*nb = (long int)va_arg(args, int)) < 0)
+	{
+		*nb *= -1;
+		cdata->int_isneg = 1;
+	}
+	if (*nb == 0 && cdata->prec == 0)
+		*s = "";
+	else
+	{
+		*s = ft_ltoa(*nb);
+		if (!*s)
+			return (-1);
+	}	
+	return (0);
+}
+
+
+int			ft_print_i(t_cdata *cdata, va_list args)
 {
 	long int	value;
 	int			str_len;
 	char		*str;
-	int			need_free;
 	char		*temp;
 
-	if (cdata->prec != -1)
-		cdata->flag_zero = 0;
-	if ((value = (long int)va_arg(args, int)) < 0)
-	{
-		value *= -1;
-		cdata->int_isneg = 1;
-	}
-	need_free = 0;
-	if (value == 0 && cdata->prec == 0)
-		str = "";
-	else
-	{
-		str = ft_ltoa(value);
-		if (!str)
-			return (-1);
-		need_free = 1;
-	}
+	if ((ft_build_str(cdata, args, &str, &value)) == -1)
+		return (-1);
 	str_len = (int)ft_strlen(str);
 	while (str_len < cdata->prec)
 	{
@@ -70,7 +76,7 @@ int		ft_print_i(t_cdata *cdata, va_list args)
 		str_len++;
 	}
 	ft_handle_print(cdata, str_len, str);
-	if (need_free)
+	if (!(value == 0 && cdata->prec == 0))
 		free(str);
 	return (0);
 }
