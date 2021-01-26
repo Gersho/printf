@@ -11,27 +11,39 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-/*
-void	ft_handle_print()
+
+static void	ft_handle_print(t_cdata *cdata, int str_len, char *str)
 {
-	
+	char	filler;
+
+	filler = ' ';
+	if (cdata->flag_zero == 1 && cdata->flag_minus == 0)
+		filler = '0';
+	if ((cdata->int_isneg == 1 && filler == '0'))
+		ft_putchar_fd('-', 1);
+	if (cdata->width > (str_len + cdata->int_isneg) && cdata->flag_minus == 0)
+		ft_putxchary_fd(cdata->width - (str_len + cdata->int_isneg), filler, 1);
+	if ((cdata->int_isneg == 1 && filler == ' '))
+		ft_putchar_fd('-', 1);
+	ft_putstr_fd(str, 1);
+	if (cdata->width > (str_len + cdata->int_isneg) && cdata->flag_minus == 1)
+		ft_putxchary_fd(cdata->width - (str_len + cdata->int_isneg), filler, 1);
+	if (cdata->width > (str_len + cdata->int_isneg))
+		cdata->printed += cdata->width;
+	else
+		cdata->printed += (str_len + cdata->int_isneg);	
 }
-*/
 
 int		ft_print_i(t_cdata *cdata, va_list args)
 {
 	long int	value;
 	int			str_len;
-	char		filler;
 	char		*str;
 	int			need_free;
 	char		*temp;
 
 	if (cdata->prec != -1)
 		cdata->flag_zero = 0;
-//	filler = ' ';
-//	if (cdata->flag_zero == 1 && cdata->flag_minus == 0)
-//		filler = '0';
 	if ((value = (long int)va_arg(args, int)) < 0)
 	{
 		value *= -1;
@@ -47,9 +59,6 @@ int		ft_print_i(t_cdata *cdata, va_list args)
 			return (-1);
 		need_free = 1;
 	}
-
-
-
 	str_len = (int)ft_strlen(str);
 	while (str_len < cdata->prec)
 	{
@@ -60,30 +69,7 @@ int		ft_print_i(t_cdata *cdata, va_list args)
 		str = temp;
 		str_len++;
 	}
-/////////////////////////////
-
-
-	filler = ' ';
-	if (cdata->flag_zero == 1 && cdata->flag_minus == 0)
-		filler = '0';
-
-		
-	if ((cdata->int_isneg == 1 && filler == '0'))
-		ft_putchar_fd('-', 1);
-	if (cdata->width > (str_len + cdata->int_isneg) && cdata->flag_minus == 0)
-		ft_putxchary_fd(cdata->width - (str_len + cdata->int_isneg), filler, 1);
-	if ((cdata->int_isneg == 1 && filler == ' '))
-		ft_putchar_fd('-', 1);
-	ft_putstr_fd(str, 1);
-	if (cdata->width > (str_len + cdata->int_isneg) && cdata->flag_minus == 1)
-		ft_putxchary_fd(cdata->width - (str_len + cdata->int_isneg), filler, 1);
-	if (cdata->width > (str_len + cdata->int_isneg))
-		cdata->printed += cdata->width;
-	else
-		cdata->printed += (str_len + cdata->int_isneg);
-
-/////////////////////////////
-
+	ft_handle_print(cdata, str_len, str);
 	if (need_free)
 		free(str);
 	return (0);
