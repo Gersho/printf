@@ -6,7 +6,7 @@
 /*   By: kzennoun <kzennoun@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 15:09:34 by kzennoun          #+#    #+#             */
-/*   Updated: 2021/01/26 16:53:10 by kzennoun         ###   ########lyon.fr   */
+/*   Updated: 2021/01/27 10:24:59 by kzennoun         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,8 @@ static void	ft_handle_print(t_cdata *cdata, int str_len, char *str)
 	if (cdata->width > (str_len + cdata->int_isneg))
 		cdata->printed += cdata->width;
 	else
-		cdata->printed += (str_len + cdata->int_isneg);	
+		cdata->printed += (str_len + cdata->int_isneg);
 }
-
 
 static int	ft_build_str(t_cdata *cdata, va_list args, char **s, long int *nb)
 {
@@ -51,10 +50,9 @@ static int	ft_build_str(t_cdata *cdata, va_list args, char **s, long int *nb)
 		*s = ft_ltoa(*nb);
 		if (!*s)
 			return (-1);
-	}	
+	}
 	return (0);
 }
-
 
 int			ft_print_i(t_cdata *cdata, va_list args)
 {
